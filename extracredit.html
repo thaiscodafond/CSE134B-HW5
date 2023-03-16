@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>extra cred</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+          <a href="index.html">Index</a>
+          <a href="webcomponent.html">Button count</a>
+          <a href="methodtest.html">Method Test</a>
+          <a href="extracredit2.html">Extra credit with VueJS</a>
+      </nav>
+    </header>
+    <main>
+      <div id="countBtn"></div>
+
+      <!-- import-->
+      <script
+        crossorigin
+        src="https://unpkg.com/react/umd/react.development.js"
+      ></script>
+      <script
+        crossorigin
+        src="https://unpkg.com/react-dom/umd/react-dom.development.js"
+      ></script>
+      
+      <!--react-->
+      <script>
+        "use strict";
+
+        function LikeButton() {
+          const [count, setCount] = React.useState(0);
+
+          return React.createElement(
+            "button",
+            {
+              className: "dialogButton",
+              onClick: () => setCount((prevCount) => prevCount + 1),
+            },
+            `Times Clicked: ${count}`
+          );
+        }
+
+        const rootNode = document.getElementById("countBtn");
+        const root = ReactDOM.createRoot(rootNode);
+        root.render(React.createElement(LikeButton));
+      </script>
+    </main>
+  </body>
+</html>

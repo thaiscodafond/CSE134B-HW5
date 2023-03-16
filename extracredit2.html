@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>extra cred</title>
+    <!-- import Vue.js -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+          <a href="index.html">Index</a>
+          <a href="webcomponent.html">Button count</a>
+          <a href="methodtest.html">Method Test</a>
+          <a href="extracredit.html">Extra credit with React</a>
+      </nav>
+    </header>
+    <main>
+      <div id="countBtn">
+        <like-button></like-button>
+      </div>
+
+      <script>
+        const LikeButton = {
+          template: `
+            <button class="dialogButton" @click="incrementCount">
+              Times Clicked: {{ count }}
+            </button>
+          `,
+          data() {
+            return {
+              count: 0,
+            };
+          },
+          methods: {
+            incrementCount() {
+              this.count++;
+            },
+          },
+        };
+
+        const app = Vue.createApp({});
+        app.component('like-button', LikeButton);
+        app.mount('#countBtn');
+      </script>
+    </main>
+  </body>
+</html>
